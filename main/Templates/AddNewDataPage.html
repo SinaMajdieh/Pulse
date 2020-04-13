@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add</title>
+</head>
+<body>
+    <center>
+        <h1>
+            Please Fill The Form
+        </h1>
+        <form action="/AddResult" method="POST">
+            <table>
+                <tr>
+                    <td>
+                        <label for="FirstName">First Name</label>
+                    </td>
+                    <td>
+                        <input autocomplete="off" type="text" name="FirstName" id="FirstName" placeholder="FirstName">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="LastName">LastName</label>
+                    </td>
+                    <td>
+                        <input autocomplete="off" type="text" name="LastName" id="LastName" placeholder="LastName">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="Phone">Phone</label>
+                    </td>
+                    <td>
+                        <select name="Prefix" id="Prefix" style="width: 100%">
+                            <option value="+01">+01</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input autocomplete="off" type="text" name="Phone" id="Phone" placeholder="Phone">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="Mail">Mail</label>
+                    </td>
+                    <td>
+                        <input autocomplete="off" type="text" name="Mail" id="Mail" placeholder="Mail">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="BirthDate">Birth Date</label>
+                    </td>
+                    <td>
+                        <input autocomplete="off" type="date" name="BirthDate" id="BirthDate" style="width: 100%">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="Job">Job</label>
+                    </td>
+                    <td>
+                        <input autocomplete="off" type="text" name="Job" id="Job" placeholder="Job">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="JobRating">Job Rating</label>
+                    </td>
+                    <td>
+                        <input autocomplete="off" type="number" name="JobRating" id="JobRating" placeholder="JobRating">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="Gender">Gender</label>
+                    </td>
+                    <td>
+                        <select name="Gender" id="Gender" style="width: 100%;">
+                            <option value="male">male</option>
+                            <option value="female">female</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input autocomplete="off" type="submit" value="Add">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </center>
+
+</body>
+</html>

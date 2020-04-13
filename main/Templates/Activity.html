@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <title>Balance</title>
+    <style>
+        h3{
+            font-size: 16px;
+            color: lightseagreen;
+            font-family: 'Roboto';
+            display: inline-block;
+        }
+        .form{
+            margin-top: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform : translate(-50% , -50%);
+            font-family: 'Roboto';
+        }
+        .table{
+            text-align: left;
+            display: inline-block;
+        }
+        .link{
+            text-decoration: none;
+        }
+        .button{
+            display: inline-block;
+            padding: 8px 16px;
+            font-size: 14px;
+            border: none;
+            border-radius: 3px;
+            transition: 0.5s;
+        }
+        #continue{
+            background-color: white;
+            color: lightseagreen;
+            border: 1px solid lightseagreen;
+        }
+        #continue:hover{
+            background-color: lightseagreen;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="form">
+        <table class="table">
+            <tr>
+                <th>
+                    <h3>Activity</h3>
+                </th>
+            </tr>
+            {{range .}}
+                <tr>
+                    <td><h3>{{.}}</h3></td>
+                </tr>
+            {{end}}
+        </table>
+        <br><br>
+        <a class="link" href="/Bank"><button class="button" id="continue">Continue</button></a>
+        
+        
+    </div>
+</body>
+</html>

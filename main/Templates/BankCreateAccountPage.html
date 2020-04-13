@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bank</title>
+</head>
+<body>
+    <center>
+        <h1 style="color: green">Welcome To Sina Bank</h1>
+        <h3>Please Complete The Form Below</h3>
+        <form action="/Bank/CreateAccount/Result" method="POST">
+            <table>
+                <tr>
+                    <td>
+                        <label for="FirstName">First Name</label>
+                    </td>
+                    <td>
+                        <input autocomplete="off" type="text" name="FirstName" id="FirstName">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label for="LastName">Last Name</label>
+                    </td>
+                    <td>
+                        <input autocomplete="off" type="text" name="LastName" id="LastName">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label for="Password">Password</label>
+                    </td>
+                    <td>
+                        <input autocomplete="off" type="text" name="Password" id="Password">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label for="Balance">Balance</label>
+                    </td>
+                    <td>
+                        <input autocomplete="off" type="number" step="0.01" name="Balance" id="Balance">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input autocomplete="off" type="submit" value="Create Account">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </center>
+</body>
+</html>

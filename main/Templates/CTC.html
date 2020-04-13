@@ -1,0 +1,125 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <title>CTC</title>
+
+    <style>
+        h1 , h3{
+            /*font-size: 19px;*/
+            color: lightseagreen;
+            font-family: 'Roboto';
+            display: inline-block;
+        }
+        .form{
+            text-align: center;
+            width: 30%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform : translate(-50% , -50%);
+            font-family: 'Roboto';
+        }
+        .div{
+            margin: 10%;
+            position: relative;
+        }
+        .input{
+            width: 70%;
+            position: relative;
+            border: none;
+            border-bottom: 1px solid #777;
+            /*height: 50px;*/
+            font-size: 18px;
+            outline: none;
+            transition: 0.5s ease-in-out;
+        }
+        .input:focus{
+            border-bottom: 2px solid lightseagreen;
+            box-shadow: none;
+            color: lightseagreen;
+        }
+        .label{
+            color: #888;
+            position: absolute;
+            font-size: 14px;
+            bottom: 5px;
+            left : 15%;
+            transition: 0.5s ease;
+        }
+        .input:focus + .label ,
+        .input:valid + .label{
+            color: lightseagreen;
+            bottom: 25px;
+            left: 15%;
+            font-size: 10px;
+        }
+        .button{
+            display: inline;
+            padding: 8px 16px;
+            font-size: 14px;
+            border: none;
+            border-radius: 3px;
+            transition: 0.5s;
+        }
+        #CTC{
+            background-color: white;
+            color: lightseagreen;
+            border: 1px solid lightseagreen;
+        }
+        #CTC:hover{
+            background-color: lightseagreen;
+            color: white;
+        }
+        #reset{
+            background-color: white;
+            color: rgb(241, 65, 65);
+            border: 1px solid rgb(241, 65, 65);
+        }
+        #reset:hover{
+            background-color: rgb(241, 65, 65);
+            color: white;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div>
+    <form class="form" action="/Bank/CTC/Ask" method="POST">
+        <h1>Sina Bank</h1>
+        <br>
+        <h3>CTC</h3>
+
+        <div class="div">
+            <input type="text" id="sendercardnum" class="input" name="CardNum" autocomplete="off" required>
+            <label for="sendercardnum" class="label">Your Card Number</label>
+        </div>
+
+        <div class="div">
+            <input type="password" id="password" class="input" name="Password" autocomplete="off" required>
+            <label for="password" class="label">Password</label>
+        </div>
+
+        <div class="div">
+            <input type="text" id="receivercardnum" class="input" name="ReceiverCardNum" autocomplete="off" required>
+            <label for="receivercardnum" class="label">Receiver Card Number</label>
+        </div>
+
+        <div class="div">
+            <input type="number" step="0.01" required class="input" id="money" autocomplete="off" name="Money">
+            <label for="money" class="label">Money</label>
+        </div>
+
+        <div class="div" style="text-align: center;">
+            <input type="submit" id="CTC" value="Send Money" class="button">
+            <input type="reset" id="reset" class="button">
+        </div>
+    </form>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search On DataBase</title>
+</head>
+<body>
+<center>
+    <h1>Search</h1>
+    <form action="/SearchResult" method="POST" target="_blank">
+        <table>
+            <tr>
+                <td>
+                    <input type="checkbox" name="SFI" id="ID">
+                    <label for="ID">Search For ID</label>
+                </td>
+                <td>
+                    <select name="SFIops" id="SFIOptions" class="SFIclass" onchange="SwitchIDFunctions(this.value)">
+                        <option value="equals">Equals</option>
+                        <option value="from-to" >From-To</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="number" name="IVEquals" id="IVEquals" class="SFIclass" placeholder="ID" style="display: inline-block">
+                    <input type="number" name="IVFrom" id="IVFrom" class="SFIclass" placeholder="From" style="display: none">   
+                </td>
+                <td>
+                    <input type="number" name="IVTo" id="IVTo" class="SFIclass" placeholder="To" style="display: none"> 
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="checkbox" name="SFFN" id="FirstName" onclick="checkSFFN(this)">
+                    <label for="FirstName">Search For First Name</label>
+                </td>
+                <td>
+                    <select id="SFFNOptions" name="SFFNops" class="SFFNclass"  >
+                        <option value="contains">Contains</option>
+                        <option value="equals">Equals</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" name="FNV" class="SFFNclass" placeholder="Name" >
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="checkbox" name="SFLN" id="LastName" onclick="checkSFLN(this)">
+                    <label for="LastName">Search For Last Name</label>
+                </td>
+                <td>
+                    <select id="SFLNOptions" name="SFLNops" class="SFLNclass" >
+                        <option value="contains">Contains</option>
+                        <option value="equals">Equals</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" name="LNV" class="SFLNclass" placeholder="Last Name" >
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="checkbox" name="SFMPN" id="MobilePhoneNumber">
+                    <label for="MobilePhoneNumber">Search For Mobile Phone Number</label>
+                </td>
+                <td>
+                    <select name="SFMPNops" id="SFMPNOptions" class="SFMPNclass">
+                        <option value="contains">Contains</option>
+                        <option value="equals">Equals</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="SFMPNpre" id="SFMPNPrefix" class="SFMPNclass" style="width: 100%;">
+                        <option value="+01">+01</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" name="MPNV" class="SFMPNclass" placeholder="Mobile Phone Number">
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <input type="checkbox" name="SFEA" id="EmailAddress">
+                    <label for="MobilePhoneNumber">Search For Email Address</label>
+                </td>
+                <td>
+                    <select name="SFEAops" id="SFEAOptions" class="SFEAclass">
+                        <option value="contains">Contains</option>
+                        <option value="equals">Equals</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" name="EAV" class="SFEAclass" placeholder="Email Address">
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <input type="checkbox" name="SFJ" id="Job">
+                    <label for="Job">Search For Job</label>
+                </td>
+                <td>
+                    <select name="SFJops" id="SFJOptions" class="SFJclass">
+                        <option value="contains">Contains</option>
+                        <option value="equals">Equals</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" name="JV" class="SFJclass" placeholder="Job">
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <input type="checkbox" name="SFJR" id="JobRating">
+                    <label for="JobRating">Search For Job Rating</label>
+                </td>
+                <td>
+                    <select name="SFJRops" id="SFJROptions" class="SFJRclass" onchange="SwitchJobRatingFunctions(this.value)">
+                        <option value="equals">Equals</option>
+                        <option value="from-to" >From-To</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="number" name="JRVEquals" id="JRVEquals" class="SFJRclass" placeholder="Job Rating" style="display: inline-block">
+                    <input type="number" name="JRVFrom" id="JRVFrom" class="SFJRclass" placeholder="From" style="display: none">
+                </td>
+                <td>
+                    <input type="number" name="JRVTo" id="JRVTo" class="SFJRclass" placeholder="To" style="display: none">
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <input type="checkbox" name="SFA" id="Age">
+                    <label for="Age">Search For Age</label>
+                </td>
+                <td>
+                    <select name="SFAops" id="SFAOptions" class="SFAclass" onchange="SwitchAgeFunctions(this.value)">
+                        <option value="equals">Equals</option>
+                        <option value="from-to" >From-To</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="number" name="AVEquals" id="AVEquals" class="SFAclass" placeholder="Age" style="display: inline-block">
+                    <input type="number" name="AVFrom" id="AVFrom" class="SFAclass" placeholder="From" style="display: none">
+                </td>
+                <td>
+                    <input type="number" name="AVTo" id="AVTo" class="SFAclass" placeholder="To" style="display: none">
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <input type="checkbox" name="SFB" id="Balance">
+                    <label for="Balance">Search For Balance</label>
+                </td>
+                <td>
+                    <select name="SFBops" id="SFBOptions" class="SFBclass" onchange="SwitchBalanceFunctions(this.value)">
+                        <option value="equals">Equals</option>
+                        <option value="from-to" >From-To</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="number" step="0.01" name="BVEquals" id="BVEquals" class="SFBclass" placeholder="Balance" style="display: inline-block">
+                    <input type="number" step="0.01" name="BVFrom" id="BVFrom" class="SFBclass" placeholder="From" style="display: none">
+                </td>
+                <td>
+                    <input type="number" step="0.01" name="BVTo" id="BVTo" class="SFBclass" placeholder="To" style="display: none">
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <input type="checkbox" name="SFCN" id="CardNumber">
+                    <label for="CardNumber">Search For Card Number</label>
+                </td>
+                <td>
+                    <select name="SFCNops" id="SFCNOptions" class="SFCNclass">
+                        <option value="equals">Equals</option>
+                        <option value="contains">Contains</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" name="CNV" class="SFCNclass" placeholder="Card Number">
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <input type="checkbox" name="SFCP" id="CardPassord">
+                    <label for="CardPassord">Search For Card Password</label>
+                </td>
+                <td>
+                    <select name="SFCPops" id="SFCPOptions" class="SFCPclass">
+                        <option value="equals">Equals</option>
+                        <option value="contains">Contains</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" name="CPV" class="SFCPclass" placeholder="Card Password">
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <input type="checkbox" name="SFG" id="Gender" onclick="checkSFG(this)">
+                    <label for="Gender">Gender</label>
+                </td>
+                <td>
+                    <select id="SFGOptions" name="SFGops" class="SFGclass" >
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="checkbox" name="sort_by_id" id="sort_by_id">
+                    <label for="sort_by_id">Sort By ID</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="checkbox" name="sort_by_name" id="sort_by_name">
+                    <label for="sort_by_name">Sort By Name</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="checkbox" name="sort_by_last_name" id="sort_by_last_name">
+                    <label for="sort_by_last_name">Sort By Last Name</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="checkbox" name="sort_by_balance" id="sort_by_balance">
+            <label for="sort_by_balance">Sort By Balance</label>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <input type="checkbox" name="sort_by_age" id="sort_by_age">
+                    <label for="sort_by_age">Sort By Age</label>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <input type="checkbox" name="sort_by_job_rating" id="sort_by_job_rating">
+                    <label for="sort_by_job_rating">Sort By Job Rating</label>
+                </td>
+            </tr>
+        </table>
+
+        <input type="submit">
+        <input type="reset" onclick="Reset()">
+    </form>
+</center>
+</body>
+<script>
+    const DefaultValue = "equals"
+    function Reset() {
+        SwitchAgeFunctions(DefaultValue)
+        SwitchBalanceFunctions(DefaultValue)
+        SwitchIDFunctions(DefaultValue)
+        SwitchJobRatingFunctions(DefaultValue)
+    }
+    function SwitchAgeFunctions(x) {
+        if (x == "from-to"){
+            document.getElementById("AVEquals").style.display = "none"
+            document.getElementById("AVFrom").style.display = "inline-block"
+            document.getElementById("AVTo").style.display = "inline-block"
+        }else if(x == "equals"){
+            document.getElementById("AVEquals").style.display = "inline-block"
+            document.getElementById("AVFrom").style.display = "none"
+            document.getElementById("AVTo").style.display = "none"
+        }
+    }
+    function SwitchBalanceFunctions(x) {
+        if (x == "from-to"){
+            document.getElementById("BVEquals").style.display = "none"
+            document.getElementById("BVFrom").style.display = "inline-block"
+            document.getElementById("BVTo").style.display = "inline-block"
+        }else if(x == "equals"){
+            document.getElementById("BVEquals").style.display = "inline-block"
+            document.getElementById("BVFrom").style.display = "none"
+            document.getElementById("BVTo").style.display = "none"
+        }
+    }
+    function SwitchIDFunctions(x) {
+        if (x == "from-to"){
+            document.getElementById("IVEquals").style.display = "none"
+            document.getElementById("IVFrom").style.display = "inline-block"
+            document.getElementById("IVTo").style.display = "inline-block"
+        }else if(x == "equals"){
+            document.getElementById("IVEquals").style.display = "inline-block"
+            document.getElementById("IVFrom").style.display = "none"
+            document.getElementById("IVTo").style.display = "none"
+        }
+    }
+    function SwitchJobRatingFunctions(x) {
+        if (x == "from-to"){
+            document.getElementById("JRVEquals").style.display = "none"
+            document.getElementById("JRVFrom").style.display = "inline-block"
+            document.getElementById("JRVTo").style.display = "inline-block"
+        }else if(x == "equals"){
+            document.getElementById("JRVEquals").style.display = "inline-block"
+            document.getElementById("JRVFrom").style.display = "none"
+            document.getElementById("JRVTo").style.display = "none"
+        }
+    }
+    function checkSFG(x) {
+        if(x.checked == true){
+            elements = document.getElementsByClassName("SFGclass")
+            for(var i = 0 ; i < elements.length; i++){
+                elements[i].disabled = false
+            }
+        }
+    }
+    function checkSFLN(x) {
+        if(x.checked == true){
+            elements = document.getElementsByClassName("SFLNclass")
+            for(var i = 0 ; i < elements.length; i++){
+                elements[i].disabled = false
+            }
+        }
+    }
+    function checkSFFN(x) {
+        if(x.checked == true){
+            elements = document.getElementsByClassName("SFFNclass")
+            for(var i = 0 ; i < elements.length; i++){
+                elements[i].disabled = false
+            }
+        }
+    }
+</script>
+</html>
